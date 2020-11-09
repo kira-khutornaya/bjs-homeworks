@@ -1,5 +1,7 @@
 "use strict";
 
+//Задание 1
+
 function calculateTotalMortgage(percent, contribution, amount, date) {
     if (isNaN(parseInt(percent))) {
         return `Параметр 'процентная ставка' содержит неправильное значение '${percent}'`;
@@ -8,14 +10,18 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
     } else if (isNaN(parseInt(amount))) {
         return `Параметр 'общая стоимость' содержит неправильное значение '${amount}'`;
     }
-   
-   for (let i = 0; i < arguments.length; i++) {
-        if (typeof arguments[i] === "string") {
-            arguments[i] = parseInt(arguments[i]);
-        }
-    }  
 
-    let bodyOfLoan = amount - contribution;
+    if (typeof percent === "string") {
+       percent = parseInt(percent);
+    } 
+    if (typeof contribution === "string") {
+       contribution = parseInt(contribution);
+    } 
+    if (typeof amount === "string") {
+       amount = parseInt(amount);
+    }
+
+    let loanBody = amount - contribution;
     let interest = percent / 100 / 12;
     let loanTerm;
     
@@ -25,12 +31,15 @@ function calculateTotalMortgage(percent, contribution, amount, date) {
         loanTerm = ((date.getMonth() - new Date().getMonth()) + (date.getFullYear() - new Date().getFullYear()) * 12);
     }
 
-    let payment = bodyOfLoan * (interest + interest / ((Math.pow(1 + interest, loanTerm)) - 1));
+    let payment = loanBody * (interest + interest / ((Math.pow(1 + interest, loanTerm)) - 1));
     let totalAmount = parseFloat((payment * loanTerm).toFixed(2));
     console.log(totalAmount);
 
     return totalAmount;
 }
+
+
+//Задание 2
 
 function getGreeting(name) {
     if (!name) {
