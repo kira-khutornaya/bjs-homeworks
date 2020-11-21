@@ -125,7 +125,8 @@ class StudentLog {
             if (!this.subjects[subject]) {
                 this.subjects[subject] = []; 
             } 
-                this.subjects[subject].push(grade);
+            
+            this.subjects[subject].push(grade);
         } else {
             console.log(`Вы пытались поставить оценку "${grade}" по предмету "${[subject]}". Допускаются только числа от 1 до 5.`);
         }
