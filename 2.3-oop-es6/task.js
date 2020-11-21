@@ -89,8 +89,8 @@ class Library {
                     return book;	
                 }
             }
-	    }
-        
+        }
+
         return null;
     }
 
@@ -160,7 +160,7 @@ class StudentLog {
             sum += this.getAverageBySubject(subject);
             subjectNumber++;
         }
-
+        
         return parseFloat((sum / subjectNumber).toFixed(1));
     }
 }
