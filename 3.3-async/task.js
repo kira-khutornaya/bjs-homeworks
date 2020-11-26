@@ -34,15 +34,15 @@ class AlarmClock {
 
 
     start() { 
-        const now = this.getCurrentFormattedTime();
+        const now = this.getCurrentFormattedTime;
         let checkClock = function(alarm) {
-            if (alarm.time === now) {
+            if (alarm.time === now()) {
                 return alarm.callback();
             }
         }
 
         if (!this.timerId) {
-            this.timerId = setInterval(() => this.alarmCollection.forEach(item => checkClock(item), 1000));
+            this.timerId = setInterval(() => this.alarmCollection.forEach(item => checkClock(item)), 1000);
         }
     }
 
@@ -106,13 +106,11 @@ testCase();
 
 task.js:15 Будильник с указанным ID уже существует!
 addClock @ task.js:15
-testCase @ task.js:90
-(anonymous) @ task.js:98
 
 task.js:57 Печать будильников в количестве: 3
-task.js:58 Будильник 1 установлен на 20:32
-task.js:58 Будильник 2 установлен на 20:33
-task.js:58 Будильник 3 установлен на 20:34
+task.js:58 Будильник 1 установлен на 09:25
+task.js:58 Будильник 2 установлен на 09:26
+task.js:58 Будильник 3 установлен на 09:27
 task.js:70 Пора вставать!
 task.js:73 Вставай уже!
 task.js:84 Вставай, а то проспишь!
